@@ -4,9 +4,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod;
 
 /**
  * Client-only mod that reorders Project Expansion's Arcane Transmutation Tablet
@@ -16,17 +14,23 @@ import net.neoforged.fml.common.Mod;
  *
  * <p>All behavior is implemented in {@link
  * io.github.linkfgfgui.showingredientsinrecipetree.mixin.TransmutationInventoryMixin}
- * and {@link io.github.linkfgfgui.showingredientsinrecipetree.bom.BoMRequirement}; this
- * class only exists to register the mod and is gated to {@link Dist#CLIENT}.</p>
+ * and {@link io.github.linkfgfgui.showingredientsinrecipetree.bom.BoMRequirement};
+ * this class only exists to register the mod. The client-only restriction is
+ * declared in {@code mods.toml} via {@code clientSideOnly=true}, since Forge
+ * 1.20.1's {@code @Mod} annotation has no {@code dist} attribute.</p>
+ *
+ * <p>Note: Forge 1.20.1's {@code javafml} loader instantiates the {@code @Mod}
+ * class via its no-arg constructor (unlike NeoForge, which passes a
+ * {@code ModContainer}), so this constructor must take no parameters.</p>
  */
-@Mod(value = ShowIngredientsInRecipeTree.MODID, dist = Dist.CLIENT)
+@Mod(ShowIngredientsInRecipeTree.MODID)
 public class ShowIngredientsInRecipeTree {
     public static final String MODID = "showingredientsinrecipetree";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ShowIngredientsInRecipeTree(ModContainer container) {
-        // dist=Dist.CLIENT on @Mod already prevents instantiation on the
-        // dedicated server; this log line is a no-op confirmation at startup.
+    public ShowIngredientsInRecipeTree() {
+        // clientSideOnly=true in mods.toml prevents loading on dedicated
+        // servers; this log line is a no-op confirmation at startup.
         LOGGER.info("{} loaded (client-only)", MODID);
     }
 }
