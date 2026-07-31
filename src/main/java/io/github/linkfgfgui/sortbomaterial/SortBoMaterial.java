@@ -1,4 +1,4 @@
-package io.github.linkfgfgui.showingredientsinrecipetree;
+package io.github.linkfgfgui.sortbomaterial;
 
 import org.slf4j.Logger;
 
@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.Mod;
  * yet satisfied by the player's inventory come very first.
  *
  * <p>All behavior is implemented in {@link
- * io.github.linkfgfgui.showingredientsinrecipetree.mixin.TransmutationInventoryMixin}
- * and {@link io.github.linkfgfgui.showingredientsinrecipetree.bom.BoMRequirement};
+ * io.github.linkfgfgui.sortbomaterial.mixin.TransmutationInventoryMixin}
+ * and {@link io.github.linkfgfgui.sortbomaterial.bom.BoMRequirement};
  * this class only exists to register the mod. The client-only restriction is
  * declared in {@code mods.toml} via {@code clientSideOnly=true}, since Forge
  * 1.20.1's {@code @Mod} annotation has no {@code dist} attribute.</p>
@@ -23,12 +23,12 @@ import net.minecraftforge.fml.common.Mod;
  * class via its no-arg constructor (unlike NeoForge, which passes a
  * {@code ModContainer}), so this constructor must take no parameters.</p>
  */
-@Mod(ShowIngredientsInRecipeTree.MODID)
-public class ShowIngredientsInRecipeTree {
-    public static final String MODID = "showingredientsinrecipetree";
+@Mod(SortBoMaterial.MODID)
+public class SortBoMaterial {
+    public static final String MODID = "sortbomaterial";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ShowIngredientsInRecipeTree() {
+    public SortBoMaterial() {
         // clientSideOnly=true in mods.toml prevents loading on dedicated
         // servers; this log line is a no-op confirmation at startup.
         LOGGER.info("{} loaded (client-only)", MODID);

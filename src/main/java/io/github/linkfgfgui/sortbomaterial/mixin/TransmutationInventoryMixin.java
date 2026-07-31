@@ -1,4 +1,4 @@
-package io.github.linkfgfgui.showingredientsinrecipetree.mixin;
+package io.github.linkfgfgui.sortbomaterial.mixin;
 
 import java.util.Comparator;
 import java.util.Map;
@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-import io.github.linkfgfgui.showingredientsinrecipetree.bom.BoMRequirement;
-import io.github.linkfgfgui.showingredientsinrecipetree.bom.BoMRequirement.Status;
+import io.github.linkfgfgui.sortbomaterial.bom.BoMRequirement;
+import io.github.linkfgfgui.sortbomaterial.bom.BoMRequirement.Status;
 
 import moze_intel.projecte.api.ItemInfo;
 import moze_intel.projecte.gameObjs.container.inventory.TransmutationInventory;
@@ -58,7 +58,7 @@ public abstract class TransmutationInventoryMixin {
                     target = "Ljava/util/stream/Stream;sorted(Ljava/util/Comparator;)Ljava/util/stream/Stream;",
                     remap = false),
             index = 0)
-    private Comparator<ItemInfo> showingredientsinrecipetree$sortForBom(
+    private Comparator<ItemInfo> sortbomaterial$sortForBom(
             Comparator<ItemInfo> original
     ) {
         Map<Item, Status> bom = BoMRequirement.collect();

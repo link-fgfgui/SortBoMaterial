@@ -1,4 +1,4 @@
-package io.github.linkfgfgui.showingredientsinrecipetree.bom;
+package io.github.linkfgfgui.sortbomaterial.bom;
 
 import java.util.HashMap;
 import java.util.Map;

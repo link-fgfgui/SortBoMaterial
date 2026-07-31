@@ -1,4 +1,4 @@
-# Show Ingredients In Recipe Tree
+# Sort BoMaterial
 
 A client-only [Forge] mod that integrates [EMI]'s recipe tree (BoM) with
 [Project Expansion]'s Arcane Transmutation Tablet.

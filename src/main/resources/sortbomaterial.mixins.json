@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "io.github.linkfgfgui.showingredientsinrecipetree.mixin",
+  "package": "io.github.linkfgfgui.sortbomaterial.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "showingredientsinrecipetree.refmap.json",
+  "refmap": "sortbomaterial.refmap.json",
   "mixins": [],
   "client": [
     "TransmutationInventoryMixin"
